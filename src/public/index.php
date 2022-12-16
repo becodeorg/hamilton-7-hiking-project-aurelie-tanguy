@@ -1,4 +1,8 @@
 <?php
 declare(strict_types=1);
 
-echo 'It works !';
+require 'vendor/autoload.php';
+
+$router = new Router();
+
+$router->root();
