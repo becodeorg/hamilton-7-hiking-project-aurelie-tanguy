@@ -7,7 +7,11 @@ class Router
     public function root() : void
     {
         $request = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'); // récupére la page/chemin dans l'url
-        $method = $_SERVER['REQUEST_METHOD']; // récupére la méthode dans l'url (GET, POST, PUT, DELETE) ici seul get et post sont utilisé
+        [$request,$function] = explode('/', $request);
+
+        method_exists($request, 'startcontroller') ? $method = $_SERVER['REQUEST_METHOD'] : $method = 'GET'; // récupére la méthode dans l'url (GET, POST, PUT, DELETE) ici seul get et post sont utilisé
+
+        //$method = $_SERVER['REQUEST_METHOD']; // récupére la méthode dans l'url (GET, POST, PUT, DELETE) ici seul get et post sont utilisé
 
         /*
         vérifie si la class existe.
@@ -15,11 +19,12 @@ class Router
         Si la class existe, on l'instancie, sinon on instancie la class Home
         */
         class_exists(ucfirst($request)) ? $controller = ucfirst($request) : $controller = 'Home';
+        method_exists($controller, $function) ? $function = $function : $function = 'default';
 
         $instancecontroller = new $controller(); // instancie la class
 
         // lance la méthode startcontroller de la class instancié. méthode obligatoire pour toutes les class Controller
-        $instancecontroller->startcontroller($method);
+        $instancecontroller->startcontroller($function);
 
     }
 }
