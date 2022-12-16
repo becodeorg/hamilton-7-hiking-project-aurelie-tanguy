@@ -4,9 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><=$title?></title>
 </head>
 <body>
-    <= $content ?>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="index.php?page=about">About</a></li>
+                <li><a href="index.php?page=contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <= $content ?>
+    </main>
+    <footer>
+        <p>Footer</p>
+    </footer>
 </body>
 </html>

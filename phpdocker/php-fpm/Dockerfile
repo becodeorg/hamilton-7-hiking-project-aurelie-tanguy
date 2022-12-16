@@ -1,10 +1,17 @@
 FROM phpdockerio/php:8.1-fpm
 WORKDIR "/application"
 
+ARG NODE_VERSION=16
+
 RUN apt-get update; \
     apt-get -y --no-install-recommends install \
         git \ 
-        php8.1-mysql; \
+        php8.1-mysql php8.1-redis; \
+    curl -sLS https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - \
+    apt-get install -y nodejs \
+    npm install -g npm \
+    apt-get update \
+    apt-get -y autoremove \
     apt-get clean; \
     composer install; \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
