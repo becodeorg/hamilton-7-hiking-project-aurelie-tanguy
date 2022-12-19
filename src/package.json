@@ -1,0 +1,23 @@
+{
+  "name": "hamilton-7-hiking-project-aurelie-tanguy",
+  "version": "1.0.0",
+  "description": "This template repository is a boilerplate setup for a PHP application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/becodeorg/hamilton-7-hiking-project-aurelie-tanguy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/becodeorg/hamilton-7-hiking-project-aurelie-tanguy/issues"
+  },
+  "homepage": "https://github.com/becodeorg/hamilton-7-hiking-project-aurelie-tanguy#readme",
+  "dependencies": {
+    "npm": "^9.2.0",
+    "tailwind": "^4.0.0"
+  }
+}
