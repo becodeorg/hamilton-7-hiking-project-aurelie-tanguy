@@ -7,6 +7,7 @@ class Home implements Icontrollers
     public function startcontroller($function) :void
     {
         $this->$function();
+        include 'views/home.php';
         include 'views/template.php';
     }
 
