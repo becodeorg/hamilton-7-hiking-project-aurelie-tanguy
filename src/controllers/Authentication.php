@@ -8,7 +8,7 @@ class Authentication implements Icontrollers
     {
         
         $this->$function();
-        include 'views/template.php';
+        include '../views/template.php';
     }
 
     public function default()

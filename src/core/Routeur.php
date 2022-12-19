@@ -18,11 +18,21 @@ class Router
         La class est définie par le chemin dans l'url récupérer plus haut.
         Si la class existe, on l'instancie, sinon on instancie la class Home
         */
-        class_exists(ucfirst($request)) ? $controller = ucfirst($request) : $controller = 'Home';
-        method_exists($controller, $function) ? $function = $function : $function = 'default';
+        if($request == null || $request == '' || !class_exists(ucfirst($request)))
+        {
+            $controller = 'Home';
+        }
+        else
+        {
+            $controller = ucfirst($request);
+        }
+
+        if($function == null || $function == '' || !method_exists($controller, $function))
+        {
+            $function = 'default';
+        }
 
         $instancecontroller = new $controller(); // instancie la class
-
         // lance la méthode startcontroller de la class instancié. méthode obligatoire pour toutes les class Controller
         $instancecontroller->startcontroller($function);
 
