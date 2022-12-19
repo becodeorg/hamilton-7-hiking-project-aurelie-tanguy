@@ -13,4 +13,4 @@ RUN apt-get update \
     apt-get -y autoremove \
     apt-get clean \
     composer install; \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*FROM phpdockerio/php:8.1-fpm

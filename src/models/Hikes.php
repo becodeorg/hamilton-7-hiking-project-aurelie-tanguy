@@ -45,4 +45,24 @@ declare(strict_types=1);
                 return [];
             }
         }
+        public function add(string $name, string $distance, string $duration, string $elevation_gain, string $description): bool
+        {
+            try
+            {
+                $stmt = $this->query('INSERT INTO hikes(name, distance, duration, elevation_gain, description) 
+                VALUES (:name, :distance, :duration, :elevation_gain, :description)', [
+                    'name' => $name,
+                    'distance' => $distance,
+                    'duration' => $duration,
+                    'elevation_gain' => $elevation_gain,
+                    'description' => $description 
+                ]);
+                return true;
+            }
+            catch (PDOException $e)
+            {
+                echo $e->getMessage();
+                return false;
+            }
+        }
     }
