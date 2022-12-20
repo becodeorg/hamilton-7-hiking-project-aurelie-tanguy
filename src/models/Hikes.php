@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-    class Hikes extends Database
+    class HikesModel extends Database
     {
         public function findAll(): array|false
         {
             try
             {
-                $stmt = $this->query('SELECT * FROM tmp');
+                $stmt = $this->query('SELECT * FROM hikes');
                 return $stmt->fetchAll();
             }
             catch (PDOException $e)

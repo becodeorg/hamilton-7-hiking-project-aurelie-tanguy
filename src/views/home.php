@@ -1,5 +1,5 @@
 <?php
-$title = 'Home';
+
 ob_start();
 ?>
 
@@ -83,4 +83,9 @@ ob_start();
 <?php
 // Path: src\views\home.php
 $content = ob_get_clean();
+
+$data = [
+    'title' => 'Home',
+    'content' => $content
+];
 ?>

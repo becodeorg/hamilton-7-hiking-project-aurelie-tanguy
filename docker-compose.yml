@@ -10,7 +10,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASSWORD}
       - MYSQL_DATABASE=${DB_DATABASE}
-      - MYSQL_USER=${DB_USER}
+      - MYSQL_USER=${DB_USERNAME}
       - MYSQL_PASSWORD=${DB_PASSWORD}
     ports:
       - "3002:3306"
@@ -34,6 +34,10 @@ services:
     volumes:
       - "./src:/application"
       - "./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.1/fpm/conf.d/99-overrides.ini"
+    environment:
+      - PHP_FPM_CLEAR_ENV=no
+    env_file:
+      - .env
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -43,7 +47,7 @@ services:
       PMA_HOST: ${DB_HOST}
       PMA_PORT: 3306
       PMA_ARBITRARY: 1
-      PMA_USER: ${DB_USER}
+      PMA_USER: ${DB_USERNAME}
       PMA_PASSWORD: ${DB_PASSWORD}
     restart: always
     depends_on:
