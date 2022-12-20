@@ -7,7 +7,7 @@ class Authentication implements Icontrollers
     public function startcontroller($function) :void
     {
         
-        $this->$function();
+        $var = $this->$function();
         include '../views/template.php';
     }
 
@@ -37,6 +37,13 @@ class Authentication implements Icontrollers
                 header('Location: /authentication/login');
             }
         }
+    }
+
+    public function DisplayLogin() :array
+    {
+        include '../view/login.php';
+        return [$title,$content];
+
     }
 
     public function register()
