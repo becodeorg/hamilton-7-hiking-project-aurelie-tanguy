@@ -13,7 +13,7 @@ declare(strict_types=1);
             }
             catch (PDOException $e)
             {
-                echo $e->getMessage();
+                
                 return [];
             }
         }
