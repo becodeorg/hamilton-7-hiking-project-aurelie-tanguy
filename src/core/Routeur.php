@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Core;
+
 class Router
 {
     public function root() : void
@@ -14,13 +16,13 @@ class Router
         La class est définie par le chemin dans l'url récupérer plus haut.
         Si la class existe, on l'instancie, sinon on instancie la class Home
         */
-        if($request == null || $request == '' || !class_exists(ucfirst($request)))
+        if($request == null || $request == '' || !class_exists('\Controllers\\'.ucfirst($request)))
         {
-            $controller = 'Home';
+            $controller = '\Controllers\Home';
         }
         else
         {
-            $controller = ucfirst($request);
+            $controller = '\Controllers\\'.ucfirst($request);
         }
 
         if($function == null || $function == '' || !method_exists($controller, $function))

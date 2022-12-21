@@ -13,6 +13,10 @@ require 'vendor/autoload.php';
 // require 'models/Users.php';
 // require 'models/Hikes.php';
 
-$router = new Router();
+use Core;
+use Controllers;
+use Models;
+
+$router = new \Core\Router();
 
 $router->root();

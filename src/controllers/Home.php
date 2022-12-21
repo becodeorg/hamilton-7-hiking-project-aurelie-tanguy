@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Controllers;
+
 class Home implements Icontrollers
 {
     public function startcontroller($function) :void
@@ -12,7 +14,7 @@ class Home implements Icontrollers
 
     public function default()
     {
-        $hike = new Hike();
+        $hike = new \Models\Hikes();
         $hikes = $hike->findFiche();
 
         include '../views/ficheHike.php';

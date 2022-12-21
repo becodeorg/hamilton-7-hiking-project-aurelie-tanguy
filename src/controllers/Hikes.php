@@ -1,5 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
+namespace Controllers;
+
     class Hikes implements Icontrollers
     {
         public function startcontroller($function) :void
@@ -16,7 +20,7 @@
     
         public function list()
         {
-            $hike = new Hike();
+            $hike = new \Models\Hikes();
             $hikes = $hike->findFiche(quantity:20);
 
             include '../views/ficheHike.php';

@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Controllers;
+
 class Authentication implements Icontrollers
 {
     public function startcontroller($function) :void
@@ -18,7 +20,7 @@ class Authentication implements Icontrollers
 
     public function login()
     {
-        $user = new Users();
+        $user = new \Models\Users();
 
         if(!empty($_POST['email']) && !empty($_POST['password']))
         {
@@ -48,7 +50,7 @@ class Authentication implements Icontrollers
 
     public function register()
     {
-        $user = new Users();
+        $user = new \Models\Users();
 
         if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['nickname']) && !empty($_POST['email']) && !empty($_POST['password']))
         {

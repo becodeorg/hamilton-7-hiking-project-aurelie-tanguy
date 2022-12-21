@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-    class Hike extends Database
+namespace Models;
+
+    class Hikes extends \Core\Database
     {
         public function findAll(): array|false
         {
@@ -11,7 +13,7 @@ declare(strict_types=1);
                 $stmt = $this->query('SELECT * FROM hikes');
                 return $stmt->fetchAll();
             }
-            catch (PDOException $e)
+            catch (\PDOException $e)
             {
                 
                 return [];
@@ -25,7 +27,7 @@ declare(strict_types=1);
                 $stmt = $this->query('SELECT * FROM hikes join users on ( hikes.createur = users.id) WHERE hikes.id = :id', ['id' => $id]);
                 return $stmt->fetch();
             }
-            catch (PDOException $e)
+            catch (\PDOException $e)
             {
                 echo $e->getMessage();
                 return [];
@@ -39,7 +41,7 @@ declare(strict_types=1);
                 $stmt = $this->query('SELECT * FROM tags join hikes_tags on ( tags.id = hikes_tags.tag_id) WHERE hikes_tags.hike_id = :id', ['id' => $id]);
                 return $stmt->fetchAll();
             }
-            catch (PDOException $e)
+            catch (\PDOException $e)
             {
                 echo $e->getMessage();
                 return [];
@@ -54,7 +56,7 @@ declare(strict_types=1);
                 $stmt = $this->query($sql);
                 return $stmt->fetchAll();
             }
-            catch (PDOException $e)
+            catch (\PDOException $e)
             {
                 echo $e->getMessage();
                 return [];
@@ -75,7 +77,7 @@ declare(strict_types=1);
                 ]);
                 return true;
             }
-            catch (PDOException $e)
+            catch (\PDOException $e)
             {
                 echo $e->getMessage();
                 return false;
@@ -97,7 +99,7 @@ declare(strict_types=1);
                 ]);
                 return true;
             }
-            catch (PDOException $e)
+            catch (\PDOException $e)
             {
                 echo $e->getMessage();
                 return false;
@@ -111,7 +113,7 @@ declare(strict_types=1);
                 $stmt = $this->query('DELETE FROM hikes WHERE id = :id', ['id' => $id]);
                 return true;
             }
-            catch (PDOException $e)
+            catch (\PDOException $e)
             {
                 echo $e->getMessage();
                 return false;

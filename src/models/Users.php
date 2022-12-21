@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-class Users extends Database
+namespace Models;
+
+class Users extends \Core\Database
 {
     public function findOne(int $id): array|false
     {
@@ -11,7 +13,7 @@ class Users extends Database
             $stmt = $this->query('SELECT * FROM users WHERE id = :id', ['id' => $id]);
             return $stmt->fetch();
         }
-        catch (PDOException $e)
+        catch (\PDOException $e)
         {
             echo $e->getMessage();
             return [];
@@ -32,7 +34,7 @@ class Users extends Database
             ]);
             return true;
         }
-        catch (PDOException $e)
+        catch (\PDOException $e)
         {
             echo $e->getMessage();
             return false;
@@ -54,7 +56,7 @@ class Users extends Database
             ]);
             return true;
         }
-        catch (PDOException $e)
+        catch (\PDOException $e)
         {
             echo $e->getMessage();
             return false;
@@ -68,7 +70,7 @@ class Users extends Database
             $stmt = $this->query('DELETE FROM users WHERE id = :id', ['id' => $id]);
             return true;
         }
-        catch (PDOException $e)
+        catch (\PDOException $e)
         {
             echo $e->getMessage();
             return false;
@@ -85,7 +87,7 @@ class Users extends Database
             ]);
             return $stmt->fetch();
         }
-        catch (PDOException $e)
+        catch (\PDOException $e)
         {
             echo $e->getMessage();
             return [];
