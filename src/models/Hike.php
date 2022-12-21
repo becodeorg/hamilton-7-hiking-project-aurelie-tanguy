@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-    class HikesModel extends Database
+    class Hike extends Database
     {
         public function findAll(): array|false
         {

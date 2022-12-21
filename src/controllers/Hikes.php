@@ -16,8 +16,8 @@
     
         public function list()
         {
-            $hikes = new HikesModel();
-            $hikes = $hikes->findAll();
+            $hike = new Hike();
+            $hikes = $hike->findAll();
 
             include '../views/hikes.php';
 

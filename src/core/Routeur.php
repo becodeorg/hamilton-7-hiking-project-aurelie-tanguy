@@ -6,6 +6,7 @@ class Router
 {
     public function root() : void
     {
+        var_dump(getenv('DB_HOST'));
         $request = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/'); // récupére la page/chemin dans l'url
         [$request,$function] = explode('/', $request); // class/methode
 
