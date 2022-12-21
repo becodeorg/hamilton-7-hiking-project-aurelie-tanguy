@@ -9,7 +9,7 @@ class Authentication implements Icontrollers
     public function startcontroller($function) :void
     {
         
-        $var = $this->$function();
+        $data = $this->$function();
         include '../views/template.php';
     }
 
@@ -18,7 +18,7 @@ class Authentication implements Icontrollers
         echo 'default';
     }
 
-    public function login()
+    public function loginT()
     {
         $user = new \Models\Users();
 
@@ -41,14 +41,17 @@ class Authentication implements Icontrollers
         }
     }
 
-    public function DisplayLogin() :array
+    public function login() :array
     {
-        include '../view/login.php';
-        return [$title,$content];
+        include '../views/login.php';
+        return [
+            'title' => 'Login',
+            'content' => $content,
+        ];
 
     }
 
-    public function register()
+    public function registerT()
     {
         $user = new \Models\Users();
 
@@ -65,6 +68,15 @@ class Authentication implements Icontrollers
         }
     }
 
+    public function register() :array
+    {
+        include '../views/register.php';
+        return [
+            'title' => 'Register',
+            'content' => $content,
+        ];
+    }
+    
     public function logout()
     {
         unset($_SESSION['user']);

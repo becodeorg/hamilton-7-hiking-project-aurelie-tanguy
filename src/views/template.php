@@ -28,32 +28,40 @@
         <ul class="navbar-nav mr-auto lg:flex lg:flex-row">
           <li class="nav-item">
             <a class="nav-link block pr-3 lg:px-2 py-2 text-white hover:underline"
-              href="/display/home" >Home</a>
+              href="/" >Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link block pr-3 lg:px-2 py-2 text-white hover:underline transition duration-150 ease-in-out"
-              href="/display/list">Hikes</a>
+              href="/hikes/list">Hikes</a>
           </li>
         </ul>
       </div>
-      <div class="nav-item block pr-3 lg:px-2 py-2 text-white transition duration-150 ease-in-out">
-        <?php 
-        if (isset ($_SESSION['user'])) {
-        ?>
 
-        <a class="pr-3 lg:px-2 py-2 hover:underline" href="/display/profil">Profil</a>
-
-        <?php
-        }else {
-        ?>
-        <a class="pr-3 lg:px-2 py-2 hover:underline  "href="/display/login">Login</a>
-        
-        <a class="pr-3 lg:px-2 py-2  hover:underline " href="/display/register">Register</a>
-        <?php
-        }
-        ?>
-        
-
+      <div class="navbar items-center" id="navbarSupportedContentY">
+        <ul class="navbar-nav mr-auto lg:flex lg:flex-row">
+          <?php 
+          if (isset ($_SESSION['user'])) {
+          ?>
+          <li class="nav-item">
+            <a class="nav-link block pr-3 lg:px-2 py-2 text-white hover:underline"
+              href="/user/" >Profil</a>
+          </li>
+          <?php
+          }else {
+          ?>
+          <li class="nav-item">
+            <a class="nav-link block pr-3 lg:px-2 py-2 text-white hover:underline transition duration-150 ease-in-out"
+              href="/Authentication/register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link block pr-3 lg:px-2 py-2 text-white hover:underline transition duration-150 ease-in-out"
+              href="/Authentication/login">Login</a>
+          </li>
+          <?php
+          }
+          ?>
+        </ul>
+      </div>
     </div>
   </nav>
 
