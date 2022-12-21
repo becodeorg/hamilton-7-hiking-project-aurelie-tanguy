@@ -12,11 +12,11 @@ foreach ($hikes as $hike) {
 
     <div class="relative mx-auto w-full">
         <a href="/hikes/display/<?=$hike["id"]?>" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
-            <div class="rounded-lg bg-white p-4 shadow">
+            <div class="rounded-lg bg-white h-10 p-4 shadow-2xl">
                 <div class="relative flex h-52 justify-center overflow-hidden rounded-lg">
                     <div class="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
-                        <div class="absolute inset-0 bg-black bg-opacity-80">
-                            <img src="https://assets.entrepreneur.com/content/3x2/2000/20150622231001-for-sale-real-estate-home-house.jpeg?crop=16:9" alt="" />
+                        <div class="absolute inset-0 rounded-lg">
+                            <img class="rounded-lg" src="https://static.onecms.io/wp-content/uploads/sites/34/2020/08/04/woman-hiking-mountain-getty-0720.jpg" alt="" />
                         </div>
                     </div>
                     
@@ -32,7 +32,7 @@ foreach ($hikes as $hike) {
                         </p>
                     </div>
                     
-                    <span class="absolute top-0 right-2 z-10 mt-3 ml-3 inline-flex select-none rounded-sm bg-[#1f93ff] px-2 py-1 text-xs font-semibold text-white"> Residential </span>
+                    <span class="absolute top-0 right-2 z-10 mt-3 ml-3 inline-flex select-none rounded-sm bg-[#1f93ff] px-2 py-1 text-xs font-semibold text-white"> TAGS </span>
                     <span class="absolute top-0 left-0 z-10 mt-3 ml-3 inline-flex select-none rounded-lg bg-transparent px-3 py-2 text-lg font-medium text-white"> <i class="fa fa-star"></i> </span>
                 </div>
             
@@ -40,7 +40,7 @@ foreach ($hikes as $hike) {
                     <h2 class="line-clamp-1 text-2xl font-medium text-gray-800 md:text-lg" title="New York"><?= $hike["name"]?></h2>
                 </div>
                 <div class="mt-4 text-ellipsis overflow-hidden h-14">
-                    <p class="line-clamp-1 mt-2 text-lg h-14 text-ellipsis overflow-hidden bg-red-500 text-gray-800"><?= $hike["description"] ?></p>
+                    <p class="line-clamp-1 mt-2 text-lg max-h-full text-ellipsis overflow-hidden bg-red-500 text-gray-800"><?= $hike["description"] ?></p>
                 </div>
                 <div class="justify-center">
                     <div class="mt-4 flex space-x-3 overflow-hidden rounded-lg px-1 py-1">
