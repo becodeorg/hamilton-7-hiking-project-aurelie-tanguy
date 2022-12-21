@@ -1,14 +1,12 @@
 <?php
-
-    $title = 'Hikes';
-
     ob_start();
 
-    foreach ($hikes as $hike) {
     ?>
 
-    <p><?= $hike?></p>
+    <form action="">
+        <p>ici pour trier</p>
+    </form>
 
     <?php
-    }
+    echo $content;
     $content = ob_get_clean();

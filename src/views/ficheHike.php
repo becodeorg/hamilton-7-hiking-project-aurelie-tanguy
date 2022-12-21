@@ -1,12 +1,14 @@
 <?php
 
 ob_start();
+
+foreach ($hikes as $hike) {
 ?>
 
 
 <div class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
     <div class="relative mx-auto w-full">
-        <a href="#" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
+        <a href="/hikes/display/<?=$hike["id"]?>" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
             <div class="rounded-lg bg-white p-4 shadow">
                 <div class="relative flex h-52 justify-center overflow-hidden rounded-lg">
                     <div class="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
@@ -32,30 +34,21 @@ ob_start();
                 </div>
             
                 <div class="mt-4">
-                    <h2 class="line-clamp-1 text-2xl font-medium text-gray-800 md:text-lg" title="New York">1000 yards (Brand New) Bungalow Available in...</h2>
-                    
-                    <p class="text-primary mt-2 inline-block whitespace-nowrap rounded-xl font-semibold leading-tight">
-                        <span class="text-sm uppercase"> PKR </span>
-                        <span class="text-2xl">3,200,000,000</span>/Sqft
-                    </p>
+                    <h2 class="line-clamp-1 text-2xl font-medium text-gray-800 md:text-lg" title="New York"><?= $hike["name"]?></h2>
                 </div>
                 <div class="mt-4">
-                    <p class="line-clamp-1 mt-2 text-lg text-gray-800">6 bedrooms Architect designed Imported fixtures and fittings Full basement Top of the [more]</p>
+                    <p class="line-clamp-1 mt-2 text-lg text-gray-800"><?= $hike["description"] ?></p>
                 </div>
                 <div class="justify-center">
                     <div class="mt-4 flex space-x-3 overflow-hidden rounded-lg px-1 py-1">
                         <p class="flex items-center font-medium text-gray-800">
                             <i class="fa fa-bed mr-2 text-blue-900"></i>
-                            2
+                            <?= $hike["distance"]?> km
                         </p>
                 
                         <p class="flex items-center font-medium text-gray-800">
                             <i class="fa fa-bath mr-2 text-blue-900"></i>
-                            3
-                        </p>
-                        <p class="flex items-center font-medium text-gray-800">
-                            <i class="fa fa-home mr-2 text-blue-900"></i>
-                            2000 Yd<sup>2</sup>
+                            <?= $hike["duration"]?>
                         </p>
                     </div>
                 </div>
@@ -66,13 +59,20 @@ ob_start();
                             <span class="bg-primary-red absolute top-0 right-0 inline-block h-3 w-3 rounded-full"></span>
                         </div>
                         
-                        <p class="line-clamp-1 ml-2 text-gray-800">Salman Ghouri Dev</p>
+                        <p class="line-clamp-1 ml-2 text-gray-800"><?= $hike["user"]?></p>
                     </div>
-            
+
+                    <?php
+                        if (isset($_SESSION["user"]) || $_SESSION["user"]["role"] == "admin" || $_SESSION["user"]["id"] == $hike["id"])
+                        {
+                    ?>
                     <div class="flex justify-end">
                         <button><i class="fa fa-sms mx-1 rounded-md bg-[#0174E1] py-1 px-3 text-2xl text-white"></i></button>
                         <button><i class="fa fa-phone rounded-md bg-[#0174E1] py-1 px-3 text-2xl text-white"></i></button>
                     </div>
+                    <?php
+                        }
+                    ?>
                 </div>
             </div>
         </a>
@@ -81,11 +81,7 @@ ob_start();
 <!-- https://tailwindcomponents.com/component/property-card-real-estate-demo -->
 
 <?php
-// Path: src\views\home.php
-$content = ob_get_clean();
+}
 
-$data = [
-    'title' => 'Home',
-    'content' => $content
-];
+$content = ob_get_clean();
 ?>

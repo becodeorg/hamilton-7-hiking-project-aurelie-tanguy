@@ -17,8 +17,9 @@
         public function list()
         {
             $hike = new Hike();
-            $hikes = $hike->findAll();
+            $hikes = $hike->findFiche(quantity:20);
 
+            include '../views/ficheHike.php';
             include '../views/hikes.php';
 
             return [

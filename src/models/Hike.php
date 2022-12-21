@@ -45,6 +45,22 @@ declare(strict_types=1);
                 return [];
             }
         }
+
+        public function findFiche(string $orderQ = "datecreation", int $quantity = 3): array|false
+        {
+            $sql = "SELECT hikes.id as id,name,distance,duration,description,Users.id as idUser,Users.nickname as user FROM hikes join Users on (hikes.id_creator = Users.id) ORDER BY $orderQ DESC LIMIT $quantity";
+            try
+            {
+                $stmt = $this->query($sql);
+                return $stmt->fetchAll();
+            }
+            catch (PDOException $e)
+            {
+                echo $e->getMessage();
+                return [];
+            }
+        }
+
         public function add(string $name, string $distance, string $duration, string $elevation_gain, string $description): bool
         {
             try
