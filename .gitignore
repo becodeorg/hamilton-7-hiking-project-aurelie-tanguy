@@ -1,4 +1,7 @@
 .idea
-/dbdata/
+./dbdata/
 dbdata
+./node_modules/
+node_modules
 .env
+src/vendor

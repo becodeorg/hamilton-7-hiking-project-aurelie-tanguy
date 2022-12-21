@@ -2,17 +2,26 @@
 
 declare(strict_types=1);
 
+namespace Controllers;
+
 class Home implements Icontrollers
 {
     public function startcontroller($function) :void
     {
-        $this->$function();
-        include 'views/home.php';
-        include 'views/template.php';
+        $data = $this->$function();
+        include '../views/template.php';
     }
 
     public function default()
     {
-        echo 'default';
+        $hike = new \Models\Hikes();
+        $hikes = $hike->findFiche();
+
+        include '../views/ficheHike.php';
+
+        return [
+            'title' => 'Home',
+            'content' => $content,
+        ];
     }
 }

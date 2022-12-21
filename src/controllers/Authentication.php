@@ -2,13 +2,15 @@
 
 declare(strict_types=1);
 
+namespace Controllers;
+
 class Authentication implements Icontrollers
 {
     public function startcontroller($function) :void
     {
         
-        $this->$function();
-        include 'views/template.php';
+        $data = $this->$function();
+        include '../views/template.php';
     }
 
     public function default()
@@ -16,9 +18,9 @@ class Authentication implements Icontrollers
         echo 'default';
     }
 
-    public function login()
+    public function loginT()
     {
-        $user = new Users();
+        $user = new \Models\Users();
 
         if(!empty($_POST['email']) && !empty($_POST['password']))
         {
@@ -39,9 +41,19 @@ class Authentication implements Icontrollers
         }
     }
 
-    public function register()
+    public function login() :array
     {
-        $user = new Users();
+        include '../views/login.php';
+        return [
+            'title' => 'Login',
+            'content' => $content,
+        ];
+
+    }
+
+    public function registerT()
+    {
+        $user = new \Models\Users();
 
         if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['nickname']) && !empty($_POST['email']) && !empty($_POST['password']))
         {
@@ -56,6 +68,15 @@ class Authentication implements Icontrollers
         }
     }
 
+    public function register() :array
+    {
+        include '../views/register.php';
+        return [
+            'title' => 'Register',
+            'content' => $content,
+        ];
+    }
+    
     public function logout()
     {
         unset($_SESSION['user']);
