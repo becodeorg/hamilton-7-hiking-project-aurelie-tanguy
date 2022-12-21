@@ -1,3 +1,7 @@
+<?php
+    ob_start();
+?>
+
 <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
     <form>
         <div class="form-group mb-6">
@@ -71,3 +75,7 @@
         </p>
     </form>
 </div>
+
+<?php
+    $content = ob_get_clean();
+?>

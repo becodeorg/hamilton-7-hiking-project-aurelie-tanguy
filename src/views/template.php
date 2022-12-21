@@ -28,11 +28,11 @@
         <ul class="navbar-nav mr-auto lg:flex lg:flex-row">
           <li class="nav-item">
             <a class="nav-link block pr-3 lg:px-2 py-2 text-white hover:underline"
-              href="/display/home" >Home</a>
+              href="/" >Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link block pr-3 lg:px-2 py-2 text-white hover:underline transition duration-150 ease-in-out"
-              href="/display/list">Hikes</a>
+              href="/hikes/list">Hikes</a>
           </li>
         </ul>
       </div>
@@ -44,18 +44,18 @@
           ?>
           <li class="nav-item">
             <a class="nav-link block pr-3 lg:px-2 py-2 text-white hover:underline"
-              href="/display/home" >Profil</a>
+              href="/user/" >Profil</a>
           </li>
           <?php
           }else {
           ?>
           <li class="nav-item">
             <a class="nav-link block pr-3 lg:px-2 py-2 text-white hover:underline transition duration-150 ease-in-out"
-              href="/display/list">Register</a>
+              href="/Authentication/register">Register</a>
           </li>
           <li class="nav-item">
             <a class="nav-link block pr-3 lg:px-2 py-2 text-white hover:underline transition duration-150 ease-in-out"
-              href="/display/list">Login</a>
+              href="/Authentication/login">Login</a>
           </li>
           <?php
           }
