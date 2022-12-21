@@ -1,12 +1,15 @@
 <?php
 
 ob_start();
+?>
+<div class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+<?php
 
 foreach ($hikes as $hike) {
 ?>
 
 
-<div class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+
     <div class="relative mx-auto w-full">
         <a href="/hikes/display/<?=$hike["id"]?>" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
             <div class="rounded-lg bg-white p-4 shadow">
@@ -36,8 +39,8 @@ foreach ($hikes as $hike) {
                 <div class="mt-4">
                     <h2 class="line-clamp-1 text-2xl font-medium text-gray-800 md:text-lg" title="New York"><?= $hike["name"]?></h2>
                 </div>
-                <div class="mt-4">
-                    <p class="line-clamp-1 mt-2 text-lg text-gray-800"><?= $hike["description"] ?></p>
+                <div class="mt-4 text-ellipsis overflow-hidden h-14">
+                    <p class="line-clamp-1 mt-2 text-lg h-14 text-ellipsis overflow-hidden bg-red-500 text-gray-800"><?= $hike["description"] ?></p>
                 </div>
                 <div class="justify-center">
                     <div class="mt-4 flex space-x-3 overflow-hidden rounded-lg px-1 py-1">
@@ -77,11 +80,12 @@ foreach ($hikes as $hike) {
             </div>
         </a>
     </div>
-</div>
 <!-- https://tailwindcomponents.com/component/property-card-real-estate-demo -->
 
 <?php
 }
-
-$content = ob_get_clean();
 ?>
+</div>
+<?php
+$content = ob_get_clean();
+
