@@ -16,9 +16,10 @@
     
         public function list()
         {
-            $hikes = new HikesModel();
-            $hikes = $hikes->findAll();
+            $hike = new Hike();
+            $hikes = $hike->findFiche(quantity:20);
 
+            include '../views/ficheHike.php';
             include '../views/hikes.php';
 
             return [

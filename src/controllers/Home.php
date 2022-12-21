@@ -6,13 +6,20 @@ class Home implements Icontrollers
 {
     public function startcontroller($function) :void
     {
-        $this->$function();
-        include '../views/home.php';
+        $data = $this->$function();
         include '../views/template.php';
     }
 
     public function default()
     {
-        echo 'default';
+        $hike = new Hike();
+        $hikes = $hike->findFiche();
+
+        include '../views/ficheHike.php';
+
+        return [
+            'title' => 'Home',
+            'content' => $content,
+        ];
     }
 }
