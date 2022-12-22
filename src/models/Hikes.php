@@ -34,11 +34,11 @@ namespace Models;
             }
         }
 
-        public function findTags(int $id): array|false
+        public function findTags(string $search_tag): array|false
         {
             try
             {
-                $stmt = $this->query('SELECT * FROM tags join hikes_tags on ( tags.id = hikes_tags.tag_id) WHERE hikes_tags.hike_id = :id', ['id' => $id]);
+                $stmt = $this->query('SELECT * FROM tags join hikes_tags on ( tags.id = hikes_tags.tag_id) WHERE tags.name = :search_tag', ['search_tag' => $search_tag]);
                 return $stmt->fetchAll();
             }
             catch (\PDOException $e)

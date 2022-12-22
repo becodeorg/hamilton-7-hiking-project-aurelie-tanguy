@@ -19,9 +19,16 @@ namespace Controllers;
         }
     
         public function list()
-        {
+        
+        {   
             $hike = new \Models\Hikes();
+            if (!isset ($_GET["search_tag"])) {
+                $hikes = $hike ->findTags($_GET["search_tag"]);
+     
+           } else {
             $hikes = $hike->findFiche(quantity:20);
+            
+           }
 
             include '../views/ficheHike.php';
             include '../views/hikes.php';
