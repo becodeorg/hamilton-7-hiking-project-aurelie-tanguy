@@ -39,8 +39,8 @@ foreach ($hikes as $hike) {
                 <div class="mt-4">
                     <h2 class="line-clamp-1 text-2xl font-medium text-gray-800 md:text-lg" title="New York"><?= $hike["name"]?></h2>
                 </div>
-                <div class="mt-4 text-ellipsis overflow-hidden h-14">
-                    <p class="line-clamp-1 mt-2 text-lg max-h-full text-ellipsis overflow-hidden bg-red-500 text-gray-800"><?= $hike["description"] ?></p>
+                <div class="mt-4 text-ellipsis overflow-hidden h-20">
+                    <p class="line-clamp-1 mt-2 text-lg max-h-full text-ellipsis overflow-hidden text-gray-800"><?= $hike["description"] ?></p>
                 </div>
                 <div class="justify-center">
                     <div class="mt-4 flex space-x-3 overflow-hidden rounded-lg px-1 py-1">
