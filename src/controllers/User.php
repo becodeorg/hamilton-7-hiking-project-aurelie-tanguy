@@ -14,6 +14,21 @@ class User implements Icontrollers
 
     public function default()
     {
-        echo 'default';
+        return $this->profil();
+    }
+
+    public function profil()
+    {
+        echo "work in progress";
+    }
+
+    public function myHikes()
+    {
+        echo "work in progress";
+    }
+
+    public function myParticipation()
+    {
+        echo "work in progress";
     }
 }

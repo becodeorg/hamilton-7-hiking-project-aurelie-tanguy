@@ -15,12 +15,12 @@ class Authentication implements Icontrollers
 
     public function default()
     {
-        echo 'default';
+        return $this->login();
     }
 
     public function loginT()
     {
-        $user = new \Models\Users();
+        $user = new \Models\Authentication();
 
         if(!empty($_POST['email']) && !empty($_POST['password']))
         {
@@ -61,7 +61,7 @@ class Authentication implements Icontrollers
 
     public function registerT()
     {
-        $user = new \Models\Users();
+        $user = new \Models\Authentication();
 
         if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['nickname']) && !empty($_POST['email']) && !empty($_POST['password']))
         {
@@ -71,7 +71,7 @@ class Authentication implements Icontrollers
             $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-            $user->add($firstname, $lastname, $nickname, $email, $password);
+            $user->register($firstname, $lastname, $nickname, $email, $password);
             header('Location: /authentication/login');
         }
         else

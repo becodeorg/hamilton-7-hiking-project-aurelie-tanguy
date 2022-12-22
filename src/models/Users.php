@@ -20,27 +20,6 @@ class Users extends \Core\Database
         }
     }
 
-    public function add(string $firstname, string $lastname, string $nickname, string $email, string $password): bool
-    {
-        try
-        {
-            $stmt = $this->query('INSERT INTO Users (firstname, lastname, nickname, email, password) 
-            VALUES (:firstname, :lastname, :nickname, :email, :password)', [
-                'firstname' => $firstname,
-                'lastname' => $lastname,
-                'nickname' => $nickname,
-                'email' => $email,
-                'password' => $password
-            ]);
-            return true;
-        }
-        catch (\PDOException $e)
-        {
-            echo $e->getMessage();
-            return false;
-        }
-    }
-
     public function update(int $id, string $firstname, string $lastname, string $nickname, string $email, string $password): bool
     {
         try
@@ -77,19 +56,5 @@ class Users extends \Core\Database
         }
     }
 
-    public function login(string $email): array|false
-    {
-        try
-        {
-            $stmt = $this->query('SELECT * FROM Users WHERE email = :email', [
-                'email' => $email
-            ]);
-            return $stmt->fetch();
-        }
-        catch (\PDOException $e)
-        {
-            echo $e->getMessage();
-            return [];
-        }
-    }
+    
 }

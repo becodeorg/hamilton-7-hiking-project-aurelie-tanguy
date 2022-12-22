@@ -15,7 +15,7 @@ namespace Controllers;
     
         public function default()
         {
-            echo 'default function';
+            return $this->list();
         }
     
         public function list()

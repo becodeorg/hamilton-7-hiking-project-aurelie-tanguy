@@ -66,7 +66,7 @@ foreach ($hikes as $hike) {
                     </div>
 
                     <?php
-                        if (isset($_SESSION["user"]) || $_SESSION["user"]["role"] == "admin" || $_SESSION["user"]["id"] == $hike["id"])
+                        if (isset($_SESSION["user"]) && ($_SESSION["user"]["role"] == "admin" || $_SESSION["user"]["id"] == $hike["id_creator"]))
                         {
                     ?>
                     <div class="flex justify-end">

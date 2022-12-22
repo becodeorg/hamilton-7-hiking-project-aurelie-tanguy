@@ -14,6 +14,11 @@ class Home implements Icontrollers
 
     public function default()
     {
+        return $this->display();
+    }
+
+    public function display()
+    {
         $hike = new \Models\Hikes();
         $hikes = $hike->findFiche();
 

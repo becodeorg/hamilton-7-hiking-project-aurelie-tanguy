@@ -50,7 +50,7 @@ namespace Models;
 
         public function findFiche(string $orderQ = "datecreation", int $quantity = 3): array|false
         {
-            $sql = "SELECT hikes.id as id,name,distance,duration,description,Users.id as idUser,Users.nickname as user FROM hikes join Users on (hikes.id_creator = Users.id) ORDER BY $orderQ DESC LIMIT $quantity";
+            $sql = "SELECT hikes.id as id,name,distance,duration,description,id_creator,Users.nickname as user FROM hikes join Users on (hikes.id_creator = Users.id) ORDER BY $orderQ DESC LIMIT $quantity";
             try
             {
                 $stmt = $this->query($sql);
