@@ -26,18 +26,17 @@ namespace Controllers;
             return $this->list($arg);
         }
     
-        public function list()
-            {   
-                if (!isset ($_GET["search_tag"])) {
-                    $hikes = $this->hike ->findTags($_GET["search_tag"]);
-         
-               } else {
-                $hikes = $this->hike->findFiche(quantity:20);
-                
-               }
+        public function list($arg)
+        {   
+            if (isset($_GET["search_tag"])) 
+            {
+                $datahikes = $this->hike ->findTags($_GET["search_tag"]);
+            }
+            else 
+            {
+                $datahikes = $this->hike->findFiche(quantity:20);
+            }
     
-
-        
             include '../views/hikes/cartHike.php';
             include '../views/hikes/listHikes.php';
 

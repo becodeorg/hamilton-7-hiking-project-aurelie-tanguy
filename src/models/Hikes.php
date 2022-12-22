@@ -22,9 +22,13 @@ namespace Models;
 
         public function findTags(string $search_tag): array|false
         {
+            $sql = 'SELECT * 
+                    FROM tags join hikes_tag on ( tags.id = hikes_tag.id_tag) 
+                                join hikes on (hikes_tag.id_hikes = hikes.id) 
+                    WHERE tags.name = :search_tag';
             try
             {
-                $stmt = $this->query('SELECT * FROM tags join hikes_tags on ( tags.id = hikes_tags.tag_id) WHERE tags.name = :search_tag', ['search_tag' => $search_tag]);
+                $stmt = $this->query($sql, ['search_tag' => $search_tag]);
                 return $stmt->fetchAll();
             }
             catch (\PDOException $e)
