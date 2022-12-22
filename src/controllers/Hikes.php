@@ -30,8 +30,8 @@ namespace Controllers;
         {
             $datahikes = $this->hike->findFiche();
 
-            include '../views/ficheHike.php';
-            include '../views/hikes.php';
+            include '../views/hikes/cartHike.php';
+            include '../views/hikes/listHikes.php';
 
             return [
                 'title' => 'Hikes',

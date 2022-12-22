@@ -51,7 +51,7 @@ class Authentication implements Icontrollers
 
     public function login() :array
     {
-        include '../views/login.php';
+        include '../views/Authentication/login.php';
         return [
             'title' => 'Login',
             'content' => $content,
@@ -82,7 +82,7 @@ class Authentication implements Icontrollers
 
     public function register() :array
     {
-        include '../views/register.php';
+        include '../views/Authentication/register.php';
         return [
             'title' => 'Register',
             'content' => $content,

@@ -28,7 +28,7 @@ class Home implements Icontrollers
     {
         $datahikes = $this->hike->findFiche();
 
-        include '../views/ficheHike.php';
+        include '../views/hikes/cartHike.php';
 
         return [
             'title' => 'Home',
