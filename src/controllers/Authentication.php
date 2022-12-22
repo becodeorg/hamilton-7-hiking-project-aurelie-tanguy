@@ -66,6 +66,10 @@ class Authentication implements Icontrollers
             $user->add($firstname, $lastname, $nickname, $email, $password);
             header('Location: /authentication/login');
         }
+        else
+        {
+            header('Location: /authentication/login');
+        }
     }
 
     public function register() :array

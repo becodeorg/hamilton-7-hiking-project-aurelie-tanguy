@@ -24,7 +24,7 @@ class Users extends \Core\Database
     {
         try
         {
-            $stmt = $this->query('INSERT INTO users (firstname, lastname, nickname, email, password) 
+            $stmt = $this->query('INSERT INTO Users (firstname, lastname, nickname, email, password) 
             VALUES (:firstname, :lastname, :nickname, :email, :password)', [
                 'firstname' => $firstname,
                 'lastname' => $lastname,

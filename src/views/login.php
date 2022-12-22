@@ -21,7 +21,7 @@
             ease-in-out
             m-0
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputEmail2"
-            aria-describedby="emailHelp" placeholder="Enter email">
+            aria-describedby="emailHelp" placeholder="Enter email" name="email>
         </div>
         <div class="form-group mb-6">
             <label for="exampleInputPassword2" class="form-label inline-block mb-2 text-gray-700">Password</label>
@@ -39,7 +39,8 @@
             ease-in-out
             m-0
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputPassword2"
-            placeholder="Password">
+            placeholder="Password"
+            name="password">
         </div>
         <div class="flex justify-between items-center mb-6">
             <div class="form-group form-check">
