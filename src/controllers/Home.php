@@ -6,7 +6,14 @@ namespace Controllers;
 
 class Home implements Icontrollers
 {
-    public function startcontroller($function) :void
+    private \Models\Hikes $hike;
+
+    public function __construct()
+    {
+        $this->hike = new \Models\Hikes();
+    }
+
+    public function startController($function) :void
     {
         $data = $this->$function();
         include '../views/template.php';
@@ -19,8 +26,7 @@ class Home implements Icontrollers
 
     public function display()
     {
-        $hike = new \Models\Hikes();
-        $hikes = $hike->findFiche();
+        $datahikes = $this->hike->findFiche();
 
         include '../views/ficheHike.php';
 

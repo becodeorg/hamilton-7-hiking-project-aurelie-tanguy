@@ -6,7 +6,7 @@ namespace Controllers;
 
 class Authentication implements Icontrollers
 {
-    public function startcontroller($function) :void
+    public function startController($function) :void
     {
         
         $data = $this->$function();

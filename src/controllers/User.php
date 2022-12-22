@@ -6,7 +6,7 @@ namespace Controllers;
 
 class User implements Icontrollers
 {
-    public function startcontroller($function) :void
+    public function startController($function) :void
     {
         $data = $this->$function();
         include '../views/template.php';

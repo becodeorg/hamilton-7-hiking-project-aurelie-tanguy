@@ -32,7 +32,7 @@ class Router
 
         $instancecontroller = new $controller(); // instancie la class
         // lance la méthode startcontroller de la class instancié. méthode obligatoire pour toutes les class Controller
-        $instancecontroller->startcontroller($function);
+        $instancecontroller->startController($function);
 
     }
 }

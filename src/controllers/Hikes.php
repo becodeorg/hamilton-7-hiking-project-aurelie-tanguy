@@ -6,7 +6,15 @@ namespace Controllers;
 
     class Hikes implements Icontrollers
     {
-        public function startcontroller($function) :void
+
+        private \Models\Hikes $hike;
+
+        public function __construct()
+        {
+            $this->hike = new \Models\Hikes();
+        }
+
+        public function startController($function) :void
         {
             $data = $this->$function();
             
@@ -20,8 +28,7 @@ namespace Controllers;
     
         public function list()
         {
-            $hike = new \Models\Hikes();
-            $hikes = $hike->findFiche(quantity:20);
+            $datahikes = $this->hike->findFiche();
 
             include '../views/ficheHike.php';
             include '../views/hikes.php';
