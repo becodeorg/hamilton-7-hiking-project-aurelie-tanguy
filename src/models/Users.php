@@ -67,7 +67,7 @@ class Users extends \Core\Database
     {
         try
         {
-            $stmt = $this->query('DELETE FROM users WHERE id = :id', ['id' => $id]);
+            $stmt = $this->query('DELETE FROM Users WHERE id = :id', ['id' => $id]);
             return true;
         }
         catch (\PDOException $e)
@@ -77,13 +77,12 @@ class Users extends \Core\Database
         }
     }
 
-    public function login(string $email, string $password): array|false
+    public function login(string $email): array|false
     {
         try
         {
-            $stmt = $this->query('SELECT * FROM users WHERE email = :email AND password = :password', [
-                'email' => $email,
-                'password' => $password
+            $stmt = $this->query('SELECT * FROM Users WHERE email = :email', [
+                'email' => $email
             ]);
             return $stmt->fetch();
         }

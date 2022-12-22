@@ -3,7 +3,7 @@
 ?>
 
 <div class="block p-6 rounded-lg shadow-lg bg-white max-w-sm">
-    <form>
+    <form action="/authentication/loginT" method="post">
         <div class="form-group mb-6">
             <label for="exampleInputEmail2" class="form-label inline-block mb-2 text-gray-700">Email address</label>
             <input type="email" class="form-control
@@ -21,7 +21,7 @@
             ease-in-out
             m-0
             focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleInputEmail2"
-            aria-describedby="emailHelp" placeholder="Enter email" name="email>
+            aria-describedby="emailHelp" placeholder="Enter email" name="email">
         </div>
         <div class="form-group mb-6">
             <label for="exampleInputPassword2" class="form-label inline-block mb-2 text-gray-700">Password</label>

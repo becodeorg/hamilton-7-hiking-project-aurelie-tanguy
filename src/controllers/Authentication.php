@@ -27,17 +27,25 @@ class Authentication implements Icontrollers
             $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-            $value = $user->login($email, $password);
+            $value = $user->login($email);
             
             if(!empty($value))
             {
+                if(!password_verify($password, $value['password']))
+                {
+                    header('Location: /authentication/login');
+                }
                 $_SESSION['user'] = $value;
-                header('Location: /');
+                header('Location: /Home/');
             }
             else
             {
                 header('Location: /authentication/login');
             }
+        }
+        else
+        {
+            header('Location: /authentication/register');
         }
     }
 
