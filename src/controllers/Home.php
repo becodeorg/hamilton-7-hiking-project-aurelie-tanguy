@@ -13,18 +13,18 @@ class Home implements Icontrollers
         $this->hike = new \Models\Hikes();
     }
 
-    public function startController($function) :void
+    public function startController($function,$arg) :void
     {
-        $data = $this->$function();
+        $data = $this->$function($arg);
         include '../views/template.php';
     }
 
-    public function default()
+    public function default($arg)
     {
-        return $this->display();
+        return $this->display($arg);
     }
 
-    public function display()
+    public function display($arg)
     {
         $datahikes = $this->hike->findFiche();
 

@@ -11,7 +11,7 @@ foreach ($datahikes as $datahike) {
 
 
     <div class="relative mx-auto w-full">
-        <a href="/hikes/display/<?=$datahike["id"]?>" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
+        <a href="/hikes/fiche/<?=$datahike["id"]?>" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
             <div class="rounded-lg bg-white p-4 shadow">
                 <div class="relative flex h-52 justify-center overflow-hidden rounded-lg">
                     <div class="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">

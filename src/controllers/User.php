@@ -6,15 +6,15 @@ namespace Controllers;
 
 class User implements Icontrollers
 {
-    public function startController($function) :void
+    public function startController($function,$arg) :void
     {
-        $data = $this->$function();
+        $data = $this->$function($arg);
         include '../views/template.php';
     }
 
-    public function default()
+    public function default($arg)
     {
-        return $this->profil();
+        return $this->profil($arg);
     }
 
     public function profil()

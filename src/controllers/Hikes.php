@@ -14,22 +14,21 @@ namespace Controllers;
             $this->hike = new \Models\Hikes();
         }
 
-        public function startController($function) :void
+        public function startController($function,$arg) :void
         {
-            $data = $this->$function();
+            $data = $this->$function($arg);
             
             include '../views/template.php';
         }
     
-        public function default()
+        public function default($arg)
         {
-            return $this->list();
+            return $this->list($arg);
         }
     
-        public function list()
+        public function list($arg)
         {
-            $datahikes = $this->hike->findFiche();
-
+            $datahikes = $this->hike->findFiche(quantity:20);
             include '../views/hikes/cartHike.php';
             include '../views/hikes/listHikes.php';
 
@@ -37,7 +36,17 @@ namespace Controllers;
                 'title' => 'Hikes',
                 'content' => $content,
             ];
+        }
 
+        public function fiche($arg)
+        {
+            $datahike = $this->hike->findOne(intval($arg));
 
+            include '../views/hikes/hike.php';
+
+            return [
+                'title' => 'Hikes',
+                'content' => $content,
+            ];
         }
     }

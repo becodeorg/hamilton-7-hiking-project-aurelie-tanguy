@@ -6,19 +6,19 @@ namespace Controllers;
 
 class Authentication implements Icontrollers
 {
-    public function startController($function) :void
+    public function startController($function,$arg) :void
     {
         
-        $data = $this->$function();
+        $data = $this->$function($arg);
         include '../views/template.php';
     }
 
-    public function default()
+    public function default($arg)
     {
-        return $this->login();
+        return $this->login($arg);
     }
 
-    public function loginT()
+    public function loginT($arg)
     {
         $user = new \Models\Authentication();
 
@@ -49,7 +49,7 @@ class Authentication implements Icontrollers
         }
     }
 
-    public function login() :array
+    public function login($arg) :array
     {
         include '../views/Authentication/login.php';
         return [
@@ -59,7 +59,7 @@ class Authentication implements Icontrollers
 
     }
 
-    public function registerT()
+    public function registerT($arg)
     {
         $user = new \Models\Authentication();
 
@@ -80,7 +80,7 @@ class Authentication implements Icontrollers
         }
     }
 
-    public function register() :array
+    public function register($arg) :array
     {
         include '../views/Authentication/register.php';
         return [
@@ -89,7 +89,7 @@ class Authentication implements Icontrollers
         ];
     }
     
-    public function logout()
+    public function logout($arg)
     {
         unset($_SESSION['user']);
         header('Location: /');

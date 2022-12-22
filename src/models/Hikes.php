@@ -6,25 +6,11 @@ namespace Models;
 
     class Hikes extends \Core\Database
     {
-        public function findAll(): array|false
-        {
-            try
-            {
-                $stmt = $this->query('SELECT * FROM hikes');
-                return $stmt->fetchAll();
-            }
-            catch (\PDOException $e)
-            {
-                
-                return [];
-            }
-        }
-
         public function findOne(int $id): array|false
         {
             try
             {
-                $stmt = $this->query('SELECT * FROM hikes join users on ( hikes.createur = users.id) WHERE hikes.id = :id', ['id' => $id]);
+                $stmt = $this->query('SELECT * FROM hikes join Users on ( hikes.id_creator = Users.id) WHERE hikes.id = :id', ['id' => $id]);
                 return $stmt->fetch();
             }
             catch (\PDOException $e)
