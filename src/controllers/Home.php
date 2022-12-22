@@ -6,18 +6,29 @@ namespace Controllers;
 
 class Home implements Icontrollers
 {
-    public function startcontroller($function) :void
+    private \Models\Hikes $hike;
+
+    public function __construct()
     {
-        $data = $this->$function();
+        $this->hike = new \Models\Hikes();
+    }
+
+    public function startController($function,$arg) :void
+    {
+        $data = $this->$function($arg);
         include '../views/template.php';
     }
 
-    public function default()
+    public function default($arg)
     {
-        $hike = new \Models\Hikes();
-        $hikes = $hike->findFiche();
+        return $this->display($arg);
+    }
 
-        include '../views/ficheHike.php';
+    public function display($arg)
+    {
+        $datahikes = $this->hike->findFiche();
+
+        include '../views/hikes/cartHike.php';
 
         return [
             'title' => 'Home',

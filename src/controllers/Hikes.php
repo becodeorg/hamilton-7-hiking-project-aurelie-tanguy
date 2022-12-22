@@ -6,38 +6,56 @@ namespace Controllers;
 
     class Hikes implements Icontrollers
     {
-        public function startcontroller($function) :void
+
+        private \Models\Hikes $hike;
+
+        public function __construct()
         {
-            $data = $this->$function();
+            $this->hike = new \Models\Hikes();
+        }
+
+        public function startController($function,$arg) :void
+        {
+            $data = $this->$function($arg);
             
             include '../views/template.php';
         }
     
-        public function default()
+        public function default($arg)
         {
-            echo 'default function';
+            return $this->list($arg);
         }
     
         public function list()
-        
-        {   
-            $hike = new \Models\Hikes();
-            if (!isset ($_GET["search_tag"])) {
-                $hikes = $hike ->findTags($_GET["search_tag"]);
-     
-           } else {
-            $hikes = $hike->findFiche(quantity:20);
-            
-           }
+            {   
+                if (!isset ($_GET["search_tag"])) {
+                    $hikes = $this->hike ->findTags($_GET["search_tag"]);
+         
+               } else {
+                $hikes = $this->hike->findFiche(quantity:20);
+                
+               }
+    
 
-            include '../views/ficheHike.php';
-            include '../views/hikes.php';
+        
+            include '../views/hikes/cartHike.php';
+            include '../views/hikes/listHikes.php';
 
             return [
                 'title' => 'Hikes',
                 'content' => $content,
             ];
+        }
 
+        public function fiche($arg)
+        {
+            $datahike = $this->hike->findOne(intval($arg));
 
+            include '../views/hikes/hike.php';
+
+            return [
+                'title' => 'Hikes',
+                'content' => $content,
+            ];
         }
     }

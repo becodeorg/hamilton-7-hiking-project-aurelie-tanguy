@@ -39,12 +39,16 @@
 
       <div class="navbar items-center" id="navbarSupportedContentY">
         <ul class="navbar-nav mr-auto lg:flex lg:flex-row">
-          <?php 
+          <?php
           if (isset ($_SESSION['user'])) {
           ?>
           <li class="nav-item">
             <a class="nav-link block pr-3 lg:px-2 py-2 text-white hover:underline"
               href="/user/" >Profil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link block pr-3 lg:px-2 py-2 text-white hover:underline"
+              href="/authentication/logout" >log out</a>
           </li>
           <?php
           }else {

@@ -5,14 +5,12 @@ ob_start();
 <div class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
 <?php
 
-foreach ($hikes as $hike) {
+foreach ($datahikes as $datahike) {
 ?>
 
-
-
     <div class="relative mx-auto w-full">
-        <a href="/hikes/display/<?=$hike["id"]?>" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
-            <div class="rounded-lg bg-white h-10 p-4 shadow-2xl">
+        <a href="/hikes/fiche/<?=$datahike["id"]?>" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
+            <div class="rounded-lg bg-white p-4 shadow">
                 <div class="relative flex h-52 justify-center overflow-hidden rounded-lg">
                     <div class="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
                         <div class="absolute inset-0 rounded-lg">
@@ -37,21 +35,21 @@ foreach ($hikes as $hike) {
                 </div>
             
                 <div class="mt-4">
-                    <h2 class="line-clamp-1 text-2xl font-medium text-gray-800 md:text-lg" title="New York"><?= $hike["name"]?></h2>
+                    <h2 class="line-clamp-1 text-2xl font-medium text-gray-800 md:text-lg" title="New York"><?= $datahike["name"]?></h2>
                 </div>
                 <div class="mt-4 text-ellipsis overflow-hidden h-20">
-                    <p class="line-clamp-1 mt-2 text-lg max-h-full text-ellipsis overflow-hidden text-gray-800"><?= $hike["description"] ?></p>
+                    <p class="line-clamp-1 mt-2 text-lg max-h-full text-ellipsis overflow-hidden text-gray-800"><?= $datahike["description"] ?></p>
                 </div>
                 <div class="justify-center">
                     <div class="mt-4 flex space-x-3 overflow-hidden rounded-lg px-1 py-1">
                         <p class="flex items-center font-medium text-gray-800">
                             <i class="fa fa-bed mr-2 text-blue-900"></i>
-                            <?= $hike["distance"]?> km
+                            <?= $datahike["distance"]?> km
                         </p>
                 
                         <p class="flex items-center font-medium text-gray-800">
                             <i class="fa fa-bath mr-2 text-blue-900"></i>
-                            <?= $hike["duration"]?>
+                            <?= $datahike["duration"]?>
                         </p>
                     </div>
                 </div>
@@ -62,11 +60,11 @@ foreach ($hikes as $hike) {
                             <span class="bg-primary-red absolute top-0 right-0 inline-block h-3 w-3 rounded-full"></span>
                         </div>
                         
-                        <p class="line-clamp-1 ml-2 text-gray-800"><?= $hike["user"]?></p>
+                        <p class="line-clamp-1 ml-2 text-gray-800"><?= $datahike["user"]?></p>
                     </div>
 
                     <?php
-                        if (isset($_SESSION["user"]) || $_SESSION["user"]["role"] == "admin" || $_SESSION["user"]["id"] == $hike["id"])
+                        if (isset($_SESSION["user"]) && ($_SESSION["user"]["role"] == "admin" || $_SESSION["user"]["id"] == $datahike["id_creator"]))
                         {
                     ?>
                     <div class="flex justify-end">

@@ -6,5 +6,6 @@ namespace Controllers;
 
 interface Icontrollers
 {
-    public function startcontroller($function) : void; // start the controller obligation de l'avoir
+    public function startController($function,$arg) : void; // start the controller obligation de l'avoir
+    public function default($arg); // default function
 }

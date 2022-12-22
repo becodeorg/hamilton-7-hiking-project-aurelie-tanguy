@@ -6,44 +6,52 @@ namespace Controllers;
 
 class Authentication implements Icontrollers
 {
-    public function startcontroller($function) :void
+    public function startController($function,$arg) :void
     {
         
-        $data = $this->$function();
+        $data = $this->$function($arg);
         include '../views/template.php';
     }
 
-    public function default()
+    public function default($arg)
     {
-        echo 'default';
+        return $this->login($arg);
     }
 
-    public function loginT()
+    public function loginT($arg)
     {
-        $user = new \Models\Users();
+        $user = new \Models\Authentication();
 
         if(!empty($_POST['email']) && !empty($_POST['password']))
         {
             $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-            $value = $user->login($email, $password);
+            $value = $user->login($email);
             
             if(!empty($value))
             {
+                if(!password_verify($password, $value['password']))
+                {
+                    header('Location: /authentication/login');
+                }
                 $_SESSION['user'] = $value;
-                header('Location: /');
+                header('Location: /Home/');
             }
             else
             {
                 header('Location: /authentication/login');
             }
         }
+        else
+        {
+            header('Location: /authentication/register');
+        }
     }
 
-    public function login() :array
+    public function login($arg) :array
     {
-        include '../views/login.php';
+        include '../views/Authentication/login.php';
         return [
             'title' => 'Login',
             'content' => $content,
@@ -51,9 +59,9 @@ class Authentication implements Icontrollers
 
     }
 
-    public function registerT()
+    public function registerT($arg)
     {
-        $user = new \Models\Users();
+        $user = new \Models\Authentication();
 
         if(!empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['nickname']) && !empty($_POST['email']) && !empty($_POST['password']))
         {
@@ -63,21 +71,25 @@ class Authentication implements Icontrollers
             $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-            $user->add($firstname, $lastname, $nickname, $email, $password);
+            $user->register($firstname, $lastname, $nickname, $email, $password);
+            header('Location: /authentication/login');
+        }
+        else
+        {
             header('Location: /authentication/login');
         }
     }
 
-    public function register() :array
+    public function register($arg) :array
     {
-        include '../views/register.php';
+        include '../views/Authentication/register.php';
         return [
             'title' => 'Register',
             'content' => $content,
         ];
     }
     
-    public function logout()
+    public function logout($arg)
     {
         unset($_SESSION['user']);
         header('Location: /');
