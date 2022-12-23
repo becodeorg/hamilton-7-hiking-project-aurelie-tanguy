@@ -10,9 +10,5 @@
     </form>
 
     <?php
-    if (isset ($_GET["search_tag"])) {
-        function findTags
-   }
-
     echo $content;
     $content = ob_get_clean();

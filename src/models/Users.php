@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Models;
 
-class users extends \Core\Database
+class User extends \Core\Database
 {
     public function findOne(int $id): array|false
     {
