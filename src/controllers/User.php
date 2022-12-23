@@ -53,8 +53,36 @@ class User implements Icontrollers
         ];
     }
 
+    public function newHike()
+    {
+        include '../views/user/newHike.php';
+        include '../views/user/dashbord.php';
+
+        return [
+            'title' => 'Profil',
+            'content' => $content,
+        ];
+    }
+
     public function myParticipation()
     {
-        echo "work in progress";
+        include '../views/user/myWalk.php';
+        include '../views/user/dashbord.php';
+
+        return [
+            'title' => 'Profil',
+            'content' => $content,
+        ];
+    }
+
+    public function setting()
+    {
+        include '../views/user/setting.php';
+        include '../views/user/dashbord.php';
+
+        return [
+            'title' => 'Profil',
+            'content' => $content,
+        ];
     }
 }

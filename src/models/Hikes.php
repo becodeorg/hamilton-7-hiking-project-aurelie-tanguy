@@ -56,7 +56,7 @@ namespace Models;
 
         public function findFicheByUser(int $id): array|false
         {
-            $sql = "SELECT hikes.id as id,name,distance,duration,description FROM hikes WHERE id_creator = :id";
+            $sql = "SELECT hikes.id as id,name,distance,duration,elevation_gain FROM hikes WHERE id_creator = :id";
             try
             {
                 $stmt = $this->query($sql, ['id' => $id]);

@@ -27,12 +27,12 @@
                 </div>
                 <div>
                     <p class="font-medium group-hover:text-indigo-400 leading-4"><?= $_SESSION["user"]["nickname"] ?></p>
-                    <span class="text-xs text-slate-400">Pantazi LLC</span>
+                    <span class="text-xs text-slate-400">xxx</span>
                 </div>
             </a>
             <hr class="my-2 border-slate-700">
             <div id="menu" class="flex flex-col space-y-2 my-5">
-                <a href="#" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
+                <a href="/user/newHike" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
                     <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 group-hover:text-indigo-400">
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                 </a>
-                <a href="#" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
+                <a href="/user/myParticipation" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
                     <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 group-hover:text-indigo-400">
@@ -73,7 +73,7 @@
                         
                     </div>
                 </a>
-                <a href="#" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
+                <a href="/user/setting" class="hover:bg-white/10 transition duration-150 ease-linear rounded-lg py-3 px-2 group">
                     <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 space-x-2 items-center">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 group-hover:text-indigo-400">
