@@ -55,6 +55,8 @@ class User implements Icontrollers
 
     public function newHike()
     {
+        $dataTags = $this->hike->findAllTags();
+        
         include '../views/user/newHike.php';
         include '../views/user/dashbord.php';
 
