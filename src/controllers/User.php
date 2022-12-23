@@ -87,4 +87,10 @@ class User implements Icontrollers
             'content' => $content,
         ];
     }
+
+    public function delete()
+    {
+        echo "you can't delete your account";
+        return $this->setting();
+    }
 }

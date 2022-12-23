@@ -98,7 +98,7 @@
             placeholder="Password"
             name="password">
         </div>
-        <!-- <input type="submit" class="
+        <input type="submit" class="
             w-full
             px-6
             py-2.5
@@ -116,8 +116,7 @@
             transition
             duration-150
             ease-in-out"
-            value="Sign up"> -->
-        <button type="submit">submit</button>
+            value="Sign up">
     </form>
   </div>
 
