@@ -10,8 +10,8 @@ class Authentication extends \Core\Database
     {
         try
         {
-            $stmt = $this->query('INSERT INTO users (id,firstname, lastname, nickname, email, password) 
-            VALUES (1,:firstname, :lastname, :nickname, :email, :password)', [
+            $stmt = $this->query('INSERT INTO users (firstname, lastname, nickname, email, password) 
+            VALUES (:firstname, :lastname, :nickname, :email, :password)', [
                 'firstname' => $firstname,
                 'lastname' => $lastname,
                 'nickname' => $nickname,
