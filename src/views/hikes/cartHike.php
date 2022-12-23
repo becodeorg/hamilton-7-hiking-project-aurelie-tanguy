@@ -64,7 +64,7 @@ foreach ($datahikes as $datahike) {
                     </div>
 
                     <?php
-                        if (isset($_SESSION["user"]) && ($_SESSION["user"]["role"] == "admin" || $_SESSION["user"]["id"] == $datahike["id_creator"]))
+                        if (isset($_SESSION["user"]) && ( $_SESSION["user"]["id"] == $datahike["id_creator"]))//$_SESSION["user"]["role"] == "admin" ||
                         {
                     ?>
                     <div class="flex justify-end">
