@@ -54,6 +54,21 @@ namespace Models;
             }
         }
 
+        public function findFicheByUser(int $id): array|false
+        {
+            $sql = "SELECT hikes.id as id,name,distance,duration,description FROM hikes WHERE id_creator = :id";
+            try
+            {
+                $stmt = $this->query($sql, ['id' => $id]);
+                return $stmt->fetchAll();
+            }
+            catch (\PDOException $e)
+            {
+                echo $e->getMessage();
+                return [];
+            }
+        }
+
         public function add(string $name, string $distance, string $duration, string $elevation_gain, string $description): bool
         {
             try

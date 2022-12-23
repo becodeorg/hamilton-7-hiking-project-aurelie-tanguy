@@ -8,10 +8,12 @@ class User implements Icontrollers
 {
 
     private \Models\User $user;
+    private \Models\Hikes $hike;
 
     public function __construct()
     {
         $this->user = new \Models\User();
+        $this->hike = new \Models\Hikes();
     }
 
     public function startController($function,$arg) :void
@@ -27,8 +29,9 @@ class User implements Icontrollers
 
     public function profil()
     {
-        $data = $this->user->findOne($_SESSION['user']['id']);
+        $datauser = $this->user->findOne($_SESSION['user']['id']);
 
+        include '../views/user/profil.php';
         include '../views/user/dashbord.php';
 
         return [
@@ -39,7 +42,15 @@ class User implements Icontrollers
 
     public function myHikes()
     {
-        echo "work in progress";
+        $datahikes = $this->hike->findFicheByUser($_SESSION['user']['id']);
+        
+        include '../views/user/myHikes.php';
+        include '../views/user/dashbord.php';
+
+        return [
+            'title' => 'Profil',
+            'content' => $content,
+        ];
     }
 
     public function myParticipation()
