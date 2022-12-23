@@ -10,7 +10,7 @@ namespace Models;
         {
             try
             {
-                $stmt = $this->query('SELECT * FROM hikes join Users on ( hikes.id_creator = Users.id) WHERE hikes.id = :id', ['id' => $id]);
+                $stmt = $this->query('SELECT * FROM hikes join users on ( hikes.id_creator = users.id) WHERE hikes.id = :id', ['id' => $id]);
                 return $stmt->fetch();
             }
             catch (\PDOException $e)

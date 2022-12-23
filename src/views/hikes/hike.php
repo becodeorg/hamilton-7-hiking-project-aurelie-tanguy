@@ -77,9 +77,6 @@ ob_start();
     </div>
 <!-- https://tailwindcomponents.com/component/property-card-real-estate-demo -->
 
-<?php
-}
-?>
 </div>
 <?php
     echo $content;
