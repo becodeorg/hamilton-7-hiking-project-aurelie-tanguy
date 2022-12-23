@@ -6,7 +6,7 @@
 <div id="24h">
     <h1 class="font-bold py-4 uppercase">Profil data</h1>
     <div id="stats" class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-black/60 to-white/5 p-6 rounded-lg">
+        <div class="bg-slate-700 to-white/5 p-6 rounded-lg">
             <div class="flex flex-row space-x-4 items-center">
                 <div id="stats-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-white">

@@ -3,12 +3,12 @@
 ob_start();
 
 ?>
-<div class="flex w-full p-2">
+<div class="flex w-full p-10 m-10">
 
     <div class="relative mx-auto w-full">
         <a href="/hikes/fiche/<?=$datahike["id"]?>" class="relative inline-block w-full transform transition-transform duration-300 ease-in-out hover:-translate-y-2">
-            <div class="rounded-lg bg-white p-4 shadow">
-                <div class="relative flex h-52 justify-center overflow-hidden rounded-lg">
+            <div class="rounded-lg bg-white px-30 shadow">
+                <div class="relative flex h-52 w-44 justify-center overflow-hidden rounded-lg">
                     <div class="w-full transform transition-transform duration-500 ease-in-out hover:scale-110">
                         <div class="absolute inset-0 rounded-lg">
                             <img class="rounded-lg" src="https://static.onecms.io/wp-content/uploads/sites/34/2020/08/04/woman-hiking-mountain-getty-0720.jpg" alt="" />
