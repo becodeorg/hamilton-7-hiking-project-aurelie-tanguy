@@ -84,18 +84,12 @@ namespace Models;
             }
         }
 
-        public function add(string $name, string $distance, string $duration, string $elevation_gain, string $description): bool
+        public function add($val): bool
         {
             try
             {
-                $stmt = $this->query('INSERT INTO hikes(name, distance, duration, elevation_gain, description) 
-                VALUES (:name, :distance, :duration, :elevation_gain, :description)', [
-                    'name' => $name,
-                    'distance' => $distance,
-                    'duration' => $duration,
-                    'elevation_gain' => $elevation_gain,
-                    'description' => $description 
-                ]);
+                $stmt = $this->query('INSERT INTO hikes(name, distance, duration, elevation_gain, description, id_creator, date_creation) 
+                VALUES (:name, :distance, :duration, :elevation, :description, :creator, :date)', $val);
                 return true;
             }
             catch (\PDOException $e)

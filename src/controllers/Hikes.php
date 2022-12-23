@@ -57,5 +57,30 @@ namespace Controllers;
                 'content' => $content,
             ];
         }
+
+        public function newHike($arg)
+        {
+            if (!empty($_POST['name']) && !empty($_POST['distance']) && !empty($_POST['duration']) && !empty($_POST['elevation']) && !empty($_POST['description']) && !empty($_POST['tag'])) {
+                $val = [
+                    'name' => htmlspecialchars($_POST['name']),
+                    'description' => htmlspecialchars($_POST['description']),
+                    'distance' => floatval(htmlspecialchars($_POST['distance'])),
+                    'duration' => htmlspecialchars($_POST['duration']),
+                    'elevation' => floatval(htmlspecialchars($_POST['elevation'])),
+                    'creator' => $_SESSION['user']['id'],
+                    'date' => date('Y-m-d'),
+                ];
+                if($this->hike->add($val))
+                header('Location: /user/myHikes');
+            }
+            else{
+                header('Location: /user/newHike');
+            }
+
+
+            
+
+            
+        }
     }
     
