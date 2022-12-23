@@ -84,6 +84,36 @@ namespace Models;
             }
         }
 
+        public function findLastId($id): array|false
+        {
+            $sql = "SELECT id FROM hikes ORDER BY id DESC LIMIT 1";
+            try
+            {
+                $stmt = $this->query($sql);
+                return $stmt->fetch();
+            }
+            catch (\PDOException $e)
+            {
+                echo $e->getMessage();
+                return [];
+            }
+        }
+
+        public function findAllTags(): array|false
+        {
+            $sql = 'SELECT * FROM tags';
+            try
+            {
+                $stmt = $this->query($sql);
+                return $stmt->fetchAll();
+            }
+            catch (\PDOException $e)
+            {
+                echo $e->getMessage();
+                return [];
+            }
+        }
+
         public function add($val): bool
         {
             try
@@ -98,6 +128,22 @@ namespace Models;
                 return false;
             }
         }
+
+        public function addTag($hike,$tag): bool
+        {
+            try
+            {
+                $stmt = $this->query('INSERT INTO hike_tags(id_hikes, id_tags) 
+                VALUES (:id_hikes, :id_tag)', ['id_hikes' => $hike, 'id_tag' => $tag]);
+                return true;
+            }
+            catch (\PDOException $e)
+            {
+                echo $e->getMessage();
+                return false;
+            }
+        }
+
         public function update(string $name, string $distance, string $duration, string $elevation_gain, string $description): bool
         {
             try
@@ -109,8 +155,6 @@ namespace Models;
                         'duration' => $duration,
                         'elevation_gain' => $elevation_gain,
                         'description' => $description
-                // :elevation_gain au lieu de ?elevation_gain permet d'accéder au valeur dans le désordre
-                //ex: si elevation_gain est en 4e position de la liste et que sa valeur est appelée en 2e position    
                 ]);
                 return true;
             }

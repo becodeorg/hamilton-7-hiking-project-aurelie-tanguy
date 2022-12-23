@@ -27,9 +27,11 @@
     <br>
     <label for="tag">tag</label>
     <select name="tag" id="">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
+        <?php
+            foreach ($dataTags as $tag) {
+                echo '<option value="'.$tag['id'].'">'.$tag['name'].'</option>';
+            }
+        ?>
     </select>
     <br>
     <br>

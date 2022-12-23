@@ -71,6 +71,17 @@ namespace Controllers;
                     'date' => date('Y-m-d'),
                 ];
                 if($this->hike->add($val))
+                {
+                    // $id = $this->hike->findLastId($_SESSION['user']['id']);
+                    $id = $this->hike->getLastInsertId();
+                    $this->hike->addTag($id, intval(htmlspecialchars($_POST['tag'])));
+
+                    header('Location: /hikes/fiche/'.$id);
+                }
+                else
+                {
+                    header('Location: /hikes/newHike');
+                }
                 header('Location: /user/myHikes');
             }
             else{
