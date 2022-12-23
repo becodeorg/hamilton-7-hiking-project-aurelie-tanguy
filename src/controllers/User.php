@@ -66,6 +66,8 @@ class User implements Icontrollers
 
     public function myParticipation()
     {
+        $datahikes = $this->hike->findParticipations($_SESSION['user']['id']);
+        
         include '../views/user/myWalk.php';
         include '../views/user/dashbord.php';
 

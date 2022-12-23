@@ -14,18 +14,22 @@
                             <th class="text-left py-3 px-2">elevation gain</th>
                             <th class="text-left py-3 px-2 rounded-r-lg">day walk</th>
                         </thead>
+
+                        <?php foreach($datahikes as $hike){ ?>
                         <tr class="border-b border-gray-700">
                             <td class="py-3 px-2 font-bold">
                                 <div class="inline-flex space-x-3 items-center">
-                                    Thai Mei
+                                    <?= $hike['name'] ?>
                                 </div>
                             </td>
-                            <td class="py-3 px-2">dd/mm/yyyy</td>
-                            <td class="py-3 px-2">x km</td>
-                            <td class="py-3 px-2">xxHxx</td>
-                            <td class="py-3 px-2">xx %</td>
-                            <td class="py-3 px-2">dd/mm/yyyy</td>
+                            <td class="py-3 px-2"><?= $hike['date_creation'] ?></td>
+                            <td class="py-3 px-2"><?= $hike['distance'] ?> km</td>
+                            <td class="py-3 px-2"><?= $hike['duration'] ?></td>
+                            <td class="py-3 px-2"><?= $hike['elevation_gain'] ?> %</td>
+                            <td class="py-3 px-2"><?= $hike['date']?></td>
                         </tr>
+
+                        <?php } ?>
                     </table>
                 </div>
             </div>

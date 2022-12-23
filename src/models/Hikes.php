@@ -69,6 +69,21 @@ namespace Models;
             }
         }
 
+        public function findParticipations(int $id): array|false
+        {
+            $sql = "SELECT hikes.id as id,name,distance,duration,elevation_gain,date FROM hikes join participation on (hikes.id = participation.id_hikes) WHERE participation.id_user = :id";
+            try
+            {
+                $stmt = $this->query($sql, ['id' => $id]);
+                return $stmt->fetchAll();
+            }
+            catch (\PDOException $e)
+            {
+                echo $e->getMessage();
+                return [];
+            }
+        }
+
         public function add(string $name, string $distance, string $duration, string $elevation_gain, string $description): bool
         {
             try
