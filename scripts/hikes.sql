@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS `hike_tags`;
 DROP TABLE IF EXISTS `tags`;
 
 CREATE TABLE `users` (
-  `id` int UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `firstname` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `nickname` varchar(50) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `hikes` (
-  `id` int UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `date_creation` date NOT NULL,
   `distance` float NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE `participation` (
 );
 
 CREATE TABLE `tags` (
-  `id` int UNSIGNED NOT NULL,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
     PRIMARY KEY (`id`)
 );

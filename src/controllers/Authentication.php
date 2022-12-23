@@ -36,7 +36,7 @@ class Authentication implements Icontrollers
                     header('Location: /authentication/login');
                 }
                 $_SESSION['user'] = $value;
-                header('Location: /Home/');
+                header('Location: /');
             }
             else
             {
@@ -71,8 +71,14 @@ class Authentication implements Icontrollers
             $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-            $user->register($firstname, $lastname, $nickname, $email, $password);
-            header('Location: /authentication/login');
+            if ($user->register($firstname, $lastname, $nickname, $email, $password))
+            {
+                header('Location: /authentication/login');
+            }
+            else
+            {
+                header('Location: /authentication/register');
+            }
         }
         else
         {
