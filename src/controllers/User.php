@@ -6,6 +6,14 @@ namespace Controllers;
 
 class User implements Icontrollers
 {
+
+    private \Models\User $user;
+
+    public function __construct()
+    {
+        $this->user = new \Models\User();
+    }
+
     public function startController($function,$arg) :void
     {
         $data = $this->$function($arg);
@@ -19,7 +27,14 @@ class User implements Icontrollers
 
     public function profil()
     {
-        echo "work in progress";
+        $data = $this->user->findOne($_SESSION['user']['id']);
+
+        include '../views/user/dashbord.php';
+
+        return [
+            'title' => 'Profil',
+            'content' => $content,
+        ];
     }
 
     public function myHikes()
