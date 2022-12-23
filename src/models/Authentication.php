@@ -10,7 +10,7 @@ class Authentication extends \Core\Database
     {
         try
         {
-            $stmt = $this->query('INSERT INTO Users (firstname, lastname, nickname, email, password) 
+            $stmt = $this->query('INSERT INTO users (firstname, lastname, nickname, email, password) 
             VALUES (:firstname, :lastname, :nickname, :email, :password)', [
                 'firstname' => $firstname,
                 'lastname' => $lastname,
@@ -31,7 +31,7 @@ class Authentication extends \Core\Database
     {
         try
         {
-            $stmt = $this->query('SELECT * FROM Users WHERE email = :email', [
+            $stmt = $this->query('SELECT * FROM users WHERE email = :email', [
                 'email' => $email
             ]);
             return $stmt->fetch();

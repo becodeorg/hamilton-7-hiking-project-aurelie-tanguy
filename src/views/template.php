@@ -82,7 +82,7 @@
         <?= $data["content"] ?>
     </main>
     <footer>
-        <p>Footer</p>
+      <img src= "" class=" h-3 w-4">
     </footer>
 </body>
 </html>

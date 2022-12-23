@@ -24,7 +24,7 @@ namespace Models;
         {
             try
             {
-                $stmt = $this->query('SELECT * FROM tags join hikes_tags on ( tags.id = hikes_tags.tag_id) WHERE tags.name = :search_tag', ['search_tag' => $search_tag]);
+                $stmt = $this->query('SELECT * FROM tags join hike_tags on ( tags.id = hike_tags.tag_id) WHERE tags.name = :search_tag', ['search_tag' => $search_tag]);
                 return $stmt->fetchAll();
             }
             catch (\PDOException $e)
@@ -33,10 +33,11 @@ namespace Models;
                 return [];
             }
         }
+        
 
         public function findFiche(string $orderQ = "datecreation", int $quantity = 3): array|false
         {
-            $sql = "SELECT hikes.id as id,name,distance,duration,description,id_creator,Users.nickname as user FROM hikes join Users on (hikes.id_creator = Users.id) ORDER BY $orderQ DESC LIMIT $quantity";
+            $sql = "SELECT hikes.id as id,name,distance,duration,description,id_creator,users.nickname as user FROM hikes join users on (hikes.id_creator = users.id) ORDER BY $orderQ DESC LIMIT $quantity";
             try
             {
                 $stmt = $this->query($sql);

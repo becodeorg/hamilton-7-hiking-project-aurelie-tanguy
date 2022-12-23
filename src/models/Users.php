@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Models;
 
-class Users extends \Core\Database
+class users extends \Core\Database
 {
     public function findOne(int $id): array|false
     {
@@ -46,7 +46,7 @@ class Users extends \Core\Database
     {
         try
         {
-            $stmt = $this->query('DELETE FROM Users WHERE id = :id', ['id' => $id]);
+            $stmt = $this->query('DELETE FROM users WHERE id = :id', ['id' => $id]);
             return true;
         }
         catch (\PDOException $e)
